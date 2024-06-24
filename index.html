@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Tarjeta de Credito Dinamico</title>
+    <!-- remix ICON -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- custom js -->
+    <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <section class="tarjeta" id="tarjeta">
+            <div class="delentaera">
+                <div class="logo-marca">
+                    <img src="assets/logos/visa.png" alt="icono de la tarjeta ">
+                </div>
+                <img src="assets/chip-tarjeta.png" class="chip" alt="icono del chip">
+                <div class="datos">
+                    <div class="grupo" id="numero">
+                        <p class="label">Numero tarjeta</p>
+                        <p class="numero">### ### ### ###</p>
+                    </div>
+                    <div class="flexbox">
+                        <div class="grupo" id="nombre">
+                            <p class="label">Nombre Tarjeta</p>
+                            <p class="nombre">Andres Guzman</p>
+                        </div>
+                        <div class="grupo" id="expiracion">
+                            <p class="label">Expiracion</p>
+                            <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
