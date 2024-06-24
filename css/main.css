@@ -39,7 +39,6 @@ body {
     backface-visibility: hidden;
     cursor: pointer;
     z-index: 2;
-    background-color: black;
 }
 
 .tarjeta.active {
@@ -53,5 +52,47 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 10px 0 rgba(90, 116, 148, .3);
+    box-shadow: 0 10px 10px 0 rgba(90, 116, 148, .3);
+}
+
+.tarjeta .delentaera {
+    width: 100%;
+    background-image: url(../assets/bg-tarjeta-02.jpg);
+    background-size: cover;
+}
+
+.delentaera .logo-marca {
+    text-align: right;
+    min-height: 50px;
+}
+
+.delentaera .logo-marca img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 80px;
+}
+
+.delentaera .chip {
+    width: 100%;
+    max-width: 50px;
+    margin-bottom: 20px;
+}
+
+.delentaera .grupo .label {
+    font-size: 1em;
+    color: hsl(209, 10%, 54%);
+    margin-bottom: 5px;
+}
+
+.delentaera .grupo :where(.numero, .nombre, .expiracion) {
+    color: #fff;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.delentaera .flexbox {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
