@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Liu+Jian+Mao+Cao&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -6,7 +8,7 @@
 
 body {
     background: #ddeefc;
-    font-family: 'Lato', sans-serif;
+    font-family: "DM Sans", sans-serif;
 }
 
 .contenedor {
@@ -184,5 +186,104 @@ body {
 
     &.active {
         transform: rotate(45deg);
+    }
+}
+
+/* estilos del formulario */
+
+.formulario-tarjeta {
+    width: 100%;
+    background-color: hsl(0, 0%, 100%);
+    padding: 150px 30px 30px 30px;
+    max-width: 700px;
+    border-radius: 10px;
+    position: relative;
+    top: -150px;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+.formulario-tarjeta label {
+    display: block;
+    color: hsl(209, 10%, 54%);
+    font-size: 16px;
+}
+
+.formulario-tarjeta :where(input, select, .btn-enviar) {
+    border: 2px solid hsl(217, 36%, 86%);
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+    padding: 5px 12px;
+    transition: 300ms ease all;
+    border-radius: 5px;
+}
+
+.formulario-tarjeta :where(input:hover, select:hover) {
+    border: 2px solid hsl(212, 71%, 75%);
+}
+
+.formulario-tarjeta :where(input:focus, select:focus) {
+    outline: hsl(0, 0%, 2%);
+    box-shadow: 1px 7px 10px -5px hsla(213, 24%, 47%, 0.302);
+}
+
+.formulario-tarjeta input {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.formulario-tarjeta .flexbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario-tarjeta .expira {
+    width: 100%;
+}
+
+.formulario-tarjeta .ccv {
+    min-width: 100px;
+}
+
+.formulario-tarjeta .grupo-select {
+    width: 100%;
+    margin-right: 15px;
+    position: relative;
+}
+
+.formulario-tarjeta select {
+    appearance: none;
+}
+
+.formulario-tarjeta .grupo-select i {
+    position: absolute;
+    color: #CED6E0;
+    top: 18px;
+    right: 15px;
+    transition: .3s ease all;
+
+    &:hover {
+
+        color: #93bfed;
+    }
+}
+
+.formulario-tarjeta .btn-enviar {
+    border: none;
+    padding: 10px;
+    font-size: 22px;
+    color: hsl(0, 0%, 100%);
+    background-color: #2364d2;
+    box-shadow: 2px 2px 10px 0px rgba(0, 85, 212, 0.4);
+    cursor: pointer;
+
+    &:hover {
+        background-color: #1850b1;
     }
 }
