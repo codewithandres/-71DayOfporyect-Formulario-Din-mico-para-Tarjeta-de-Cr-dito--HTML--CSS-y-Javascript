@@ -201,7 +201,7 @@ body {
     top: -150px;
     z-index: 1;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transition: clip-path 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: clip-path 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
 
     &.active {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
