@@ -5,6 +5,7 @@ const formElement = {
 	numeroTarjeta: document.querySelector('#tarjeta .numero'),
 	nombreTarjeta: document.querySelector('#tarjeta .nombre'),
 	logoMarca: document.querySelector('#logo-marca'),
+	tarjetaFirma: document.querySelector('#tarjeta .firma p'),
 };
 
 tarjeta.addEventListener('click', () => tarjeta.classList.toggle('active'));
@@ -72,5 +73,17 @@ formElement.formulario.inputNumero.addEventListener('input', (event) => {
 		logoMarca.appendChild(imagen);
 	}
 	//para mostrar el frente de la tarjeta
+	mostrarFrente();
+});
+
+formElement.formulario.inputNombre.addEventListener('input', (event) => {
+	const { formulario, nombreTarjeta, tarjetaFirma } = formElement;
+	let valorInput = event.target.value;
+
+	formulario.inputNombre.value = valorInput.replace(/[0-9]/g, '');
+	nombreTarjeta.textContent = valorInput;
+	tarjetaFirma.textContent = valorInput;
+
+	if (valorInput == '') nombreTarjeta.textContent = 'Jhon Doe';
 	mostrarFrente();
 });
