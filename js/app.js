@@ -21,7 +21,7 @@ for (let i = 0; i <= 12; i++) {
 	formularioElement.formulario.selectMes.appendChild(option);
 }
 
-const yearActuala = new Date().getFullYear();
+const yearActuala = new DateP().getFullYear();
 for (let i = yearActuala; i <= yearActuala + 8; i++) {
 	const { formulario } = formularioElement;
 	let option = document.createElement('option');
