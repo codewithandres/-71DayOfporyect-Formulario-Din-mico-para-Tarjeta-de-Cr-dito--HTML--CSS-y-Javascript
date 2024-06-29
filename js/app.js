@@ -1,7 +1,7 @@
 const formElement = {
 	tarjeta: document.querySelector('#tarjeta'),
 	btnAbrirFormulario: document.querySelector('#btn-abrir-formulario'),
-	formulario: document.querySelector('#formulario-tarjeta'),
+	form: document.querySelector('#formulario-tarjeta'),
 	numeroTarjeta: document.querySelector('#tarjeta .numero'),
 	nombreTarjeta: document.querySelector('#tarjeta .nombre'),
 	logoMarca: document.querySelector('#logo-marca'),
@@ -14,10 +14,10 @@ const formElement = {
 tarjeta.addEventListener('click', () => tarjeta.classList.toggle('active'));
 
 formElement.btnAbrirFormulario.addEventListener('click', () => {
-	const { btnAbrirFormulario, formulario } = formElement;
+	const { btnAbrirFormulario, form } = formElement;
 
 	btnAbrirFormulario.classList.toggle('active'),
-		formulario.classList.toggle('active');
+		form.classList.toggle('active');
 });
 
 for (let i = 1; i <= 12; i++) {
@@ -25,17 +25,17 @@ for (let i = 1; i <= 12; i++) {
 
 	option.value = i;
 	option.innerHTML = i;
-	formElement.formulario.selectMes.appendChild(option);
+	formElement.form.selectMes.appendChild(option);
 }
 
 const yearActuala = new Date().getFullYear();
 for (let i = yearActuala; i <= yearActuala + 8; i++) {
-	const { formulario } = formElement;
+	const { form } = formElement;
 	let option = document.createElement('option');
 
 	option.value = i;
 	option.innerHTML = i;
-	formulario.selectYear.appendChild(option);
+	form.selectYear.appendChild(option);
 }
 
 const mostrarFrente = () => {
@@ -45,12 +45,12 @@ const mostrarFrente = () => {
 		tarjeta.classList.toggle('active');
 };
 
-formElement.formulario.inputNumero.addEventListener('input', (event) => {
-	const { formulario, numeroTarjeta, logoMarca } = formElement;
+formElement.form.inputNumero.addEventListener('input', (event) => {
+	const { form, numeroTarjeta, logoMarca } = formElement;
 	let valorInput = event.target.value;
 
 	//validacionde input de numer con expreciones regulares
-	formulario.inputNumero.value = valorInput
+	form.inputNumero.value = valorInput
 		.replace(/\s/g, '')
 		.replace(/\D/g, '')
 		.replace(/([0-9]{4})/g, '$1 ')
@@ -81,11 +81,11 @@ formElement.formulario.inputNumero.addEventListener('input', (event) => {
 });
 
 //validacion del canpo nombre
-formElement.formulario.inputNombre.addEventListener('input', (event) => {
-	const { formulario, nombreTarjeta, tarjetaFirma } = formElement;
+formElement.form.inputNombre.addEventListener('input', (event) => {
+	const { form, nombreTarjeta, tarjetaFirma } = formElement;
 	let valorInput = event.target.value;
 
-	formulario.inputNombre.value = valorInput.replace(/[0-9]/g, '');
+	form.inputNombre.value = valorInput.replace(/[0-9]/g, '');
 	nombreTarjeta.textContent = valorInput;
 	tarjetaFirma.textContent = valorInput;
 
@@ -94,13 +94,13 @@ formElement.formulario.inputNombre.addEventListener('input', (event) => {
 });
 
 //select mes
-formElement.formulario.selectMes.addEventListener('change', (event) => {
+formElement.form.selectMes.addEventListener('change', (event) => {
 	const { mesExpiracion } = formElement;
 
 	mesExpiracion.textContent = event.target.value;
 });
 
-formElement.formulario.selectYear.addEventListener('change', (event) => {
+formElement.form.selectYear.addEventListener('change', (event) => {
 	const { yearxpiracion } = formElement;
 
 	yearxpiracion.textContent = event.target.value.slice(2);
@@ -108,16 +108,16 @@ formElement.formulario.selectYear.addEventListener('change', (event) => {
 });
 
 // * ccv
-formElement.formulario.inputCCV.addEventListener('input', () => {
-	const { tarjeta, formulario, ccv } = formElement;
+formElement.form.inputCCV.addEventListener('input', () => {
+	const { tarjeta, form, ccv } = formElement;
 
 	if (!tarjeta.classList.contains('active'))
 		tarjeta.classList.toggle('active');
 
-	formulario.inputCCV.value = formulario.inputCCV.value
+	form.inputCCV.value = form.inputCCV.value
 		//eliminar espacios en blanco
 		.replace(/\s/g, '')
 		.replace(/\D/g, '');
 
-	ccv.textContent = formulario.inputCCV.value;
+	ccv.textContent = form.inputCCV.value;
 });
