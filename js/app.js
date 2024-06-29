@@ -6,6 +6,9 @@ const formElement = {
 	nombreTarjeta: document.querySelector('#tarjeta .nombre'),
 	logoMarca: document.querySelector('#logo-marca'),
 	tarjetaFirma: document.querySelector('#tarjeta .firma p'),
+	mesExpiracion: document.querySelector('#tarjeta .mes'),
+	yearxpiracion: document.querySelector('#tarjeta .year'),
+	ccv: document.querySelector('#tarjeta .ccv'),
 };
 
 tarjeta.addEventListener('click', () => tarjeta.classList.toggle('active'));
@@ -17,7 +20,7 @@ formElement.btnAbrirFormulario.addEventListener('click', () => {
 		formulario.classList.toggle('active');
 });
 
-for (let i = 0; i <= 12; i++) {
+for (let i = 1; i <= 12; i++) {
 	let option = document.createElement('option');
 
 	option.value = i;
@@ -45,6 +48,7 @@ const mostrarFrente = () => {
 formElement.formulario.inputNumero.addEventListener('input', (event) => {
 	const { formulario, numeroTarjeta, logoMarca } = formElement;
 	let valorInput = event.target.value;
+
 	//validacionde input de numer con expreciones regulares
 	formulario.inputNumero.value = valorInput
 		.replace(/\s/g, '')
@@ -76,6 +80,7 @@ formElement.formulario.inputNumero.addEventListener('input', (event) => {
 	mostrarFrente();
 });
 
+//validacion del canpo nombre
 formElement.formulario.inputNombre.addEventListener('input', (event) => {
 	const { formulario, nombreTarjeta, tarjetaFirma } = formElement;
 	let valorInput = event.target.value;
@@ -86,4 +91,33 @@ formElement.formulario.inputNombre.addEventListener('input', (event) => {
 
 	if (valorInput == '') nombreTarjeta.textContent = 'Jhon Doe';
 	mostrarFrente();
+});
+
+//select mes
+formElement.formulario.selectMes.addEventListener('change', (event) => {
+	const { mesExpiracion } = formElement;
+
+	mesExpiracion.textContent = event.target.value;
+});
+
+formElement.formulario.selectYear.addEventListener('change', (event) => {
+	const { yearxpiracion } = formElement;
+
+	yearxpiracion.textContent = event.target.value.slice(2);
+	mostrarFrente();
+});
+
+// * ccv
+formElement.formulario.inputCCV.addEventListener('input', () => {
+	const { tarjeta, formulario, ccv } = formElement;
+
+	if (!tarjeta.classList.contains('active'))
+		tarjeta.classList.toggle('active');
+
+	formulario.inputCCV.value = formulario.inputCCV.value
+		//eliminar espacios en blanco
+		.replace(/\s/g, '')
+		.replace(/\D/g, '');
+
+	ccv.textContent = formulario.inputCCV.value;
 });
